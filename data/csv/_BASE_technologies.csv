@@ -1,0 +1,208 @@
+TECHNOLOGY,DESCRIPTION,UNITOFCAPACITY,UNITOFACTIVITY
+TRNELC,Transmission and distribution network,GW,PJ
+UNSELC,Unserved electricity (value of lost load backstop),GW,PJ
+IMPHFO,Import of Heavy fuel oil,PJ/yr,PJ
+IMPDSL,Import of Diesel/kerosene,PJ/yr,PJ
+IMPLNG,Import of Imported LNG,PJ/yr,PJ
+IMPURN,Import of Nuclear fuel (thermal PJ),PJ/yr,PJ
+PWRGEO,Geothermal (flash),GW,PJ
+PWRHYDTAN,Hydro Tana cascade (existing),GW,PJ
+PWRHYDRVB,Hydro Turkwel and Rift Valley (existing),GW,PJ
+PWRHYDLVS,Hydro Sondu Miriu and LVS small (existing),GW,PJ
+PWRHYDLVN,Hydro small LVN (existing),GW,PJ
+PWRHYDHGF,High Grand Falls multipurpose (Tana),GW,PJ
+PWRHYDKAR,Karura hydro (Tana),GW,PJ
+PWRHYDNEW,"Other multipurpose hydro (Magwagwa, Nandi Forest, Arror)",GW,PJ
+PWRHYDSML,New small hydro,GW,PJ
+PWRWNDT1,"Wind, Turkana-Marsabit corridor",GW,PJ
+PWRWNDT2,"Wind, other sites",GW,PJ
+PWRSOL,Utility solar PV,GW,PJ
+PWRSOLDG,Distributed rooftop PV (grid-connected),GW,PJ
+PWRDSL,Medium-speed diesel/HFO (existing),GW,PJ
+PWROCGDSL,Gas turbines on diesel (existing),GW,PJ
+PWROCGLNG,"Open-cycle gas turbine, LNG",GW,PJ
+PWRCCGLNG,"Combined-cycle gas turbine, LNG (Dongo Kundu)",GW,PJ
+PWRNUC,Nuclear (large PWR),GW,PJ
+PWRBAG,Bagasse cogeneration (sugar mills),GW,PJ
+IMPELCETH,"Electricity import, Ethiopia (EEP contract)",GW,PJ
+IMPELCEAP,"Electricity import, Uganda/Tanzania",GW,PJ
+BATSTOR,"Grid battery (charge mode 1, discharge mode 2)",GW,PJ
+WSRFLVN,"Surface runoff net of ecological reserve, LVN",MCM/yr,MCM
+WRORLVN,"Run-of-river abstraction, LVN",MCM/yr,MCM
+WDAMLVN,"Dam storage yield, LVN",MCM/yr,MCM
+WGWTLVN,"Groundwater abstraction, LVN",MCM/yr,MCM
+WTRTLVN,"Municipal treatment and distribution, LVN",MCM/yr,MCM
+WUNSLVN,"Unserved municipal water (backstop), LVN",MCM/yr,MCM
+WIRSLVN,"Surface/furrow irrigation conveyance, LVN",MCM/yr,MCM
+WIRDLVN,"Drip/sprinkler irrigation, LVN",MCM/yr,MCM
+WIRULVN,"Irrigation water deficit (backstop), LVN",MCM/yr,MCM
+WSRFLVS,"Surface runoff net of ecological reserve, LVS",MCM/yr,MCM
+WRORLVS,"Run-of-river abstraction, LVS",MCM/yr,MCM
+WDAMLVS,"Dam storage yield, LVS",MCM/yr,MCM
+WGWTLVS,"Groundwater abstraction, LVS",MCM/yr,MCM
+WTRTLVS,"Municipal treatment and distribution, LVS",MCM/yr,MCM
+WUNSLVS,"Unserved municipal water (backstop), LVS",MCM/yr,MCM
+WIRSLVS,"Surface/furrow irrigation conveyance, LVS",MCM/yr,MCM
+WIRDLVS,"Drip/sprinkler irrigation, LVS",MCM/yr,MCM
+WIRULVS,"Irrigation water deficit (backstop), LVS",MCM/yr,MCM
+WSRFRVB,"Surface runoff net of ecological reserve, RVB",MCM/yr,MCM
+WRORRVB,"Run-of-river abstraction, RVB",MCM/yr,MCM
+WDAMRVB,"Dam storage yield, RVB",MCM/yr,MCM
+WGWTRVB,"Groundwater abstraction, RVB",MCM/yr,MCM
+WTRTRVB,"Municipal treatment and distribution, RVB",MCM/yr,MCM
+WUNSRVB,"Unserved municipal water (backstop), RVB",MCM/yr,MCM
+WIRSRVB,"Surface/furrow irrigation conveyance, RVB",MCM/yr,MCM
+WIRDRVB,"Drip/sprinkler irrigation, RVB",MCM/yr,MCM
+WIRURVB,"Irrigation water deficit (backstop), RVB",MCM/yr,MCM
+WSRFATH,"Surface runoff net of ecological reserve, ATH",MCM/yr,MCM
+WRORATH,"Run-of-river abstraction, ATH",MCM/yr,MCM
+WDAMATH,"Dam storage yield, ATH",MCM/yr,MCM
+WGWTATH,"Groundwater abstraction, ATH",MCM/yr,MCM
+WTRTATH,"Municipal treatment and distribution, ATH",MCM/yr,MCM
+WUNSATH,"Unserved municipal water (backstop), ATH",MCM/yr,MCM
+WIRSATH,"Surface/furrow irrigation conveyance, ATH",MCM/yr,MCM
+WIRDATH,"Drip/sprinkler irrigation, ATH",MCM/yr,MCM
+WIRUATH,"Irrigation water deficit (backstop), ATH",MCM/yr,MCM
+WSRFTAN,"Surface runoff net of ecological reserve, TAN",MCM/yr,MCM
+WRORTAN,"Run-of-river abstraction, TAN",MCM/yr,MCM
+WDAMTAN,"Dam storage yield, TAN",MCM/yr,MCM
+WGWTTAN,"Groundwater abstraction, TAN",MCM/yr,MCM
+WTRTTAN,"Municipal treatment and distribution, TAN",MCM/yr,MCM
+WUNSTAN,"Unserved municipal water (backstop), TAN",MCM/yr,MCM
+WIRSTAN,"Surface/furrow irrigation conveyance, TAN",MCM/yr,MCM
+WIRDTAN,"Drip/sprinkler irrigation, TAN",MCM/yr,MCM
+WIRUTAN,"Irrigation water deficit (backstop), TAN",MCM/yr,MCM
+WSRFENN,"Surface runoff net of ecological reserve, ENN",MCM/yr,MCM
+WRORENN,"Run-of-river abstraction, ENN",MCM/yr,MCM
+WDAMENN,"Dam storage yield, ENN",MCM/yr,MCM
+WGWTENN,"Groundwater abstraction, ENN",MCM/yr,MCM
+WTRTENN,"Municipal treatment and distribution, ENN",MCM/yr,MCM
+WUNSENN,"Unserved municipal water (backstop), ENN",MCM/yr,MCM
+WIRSENN,"Surface/furrow irrigation conveyance, ENN",MCM/yr,MCM
+WIRDENN,"Drip/sprinkler irrigation, ENN",MCM/yr,MCM
+WIRUENN,"Irrigation water deficit (backstop), ENN",MCM/yr,MCM
+WTRFTA,Inter-basin transfer Tana to Athi (Nairobi supply),MCM/yr,MCM
+WDESATH,"Seawater desalination, Mombasa (Athi basin)",MCM/yr,MCM
+LSUPLVN,"Land supply, LVN",kha,kha
+LCRSLVN,"Cropland (suitable land converted), LVN",kha,kha
+LIRSLVN,"Irrigation scheme development, LVN",kha,kha
+LFORLVN,"Existing forest (protected), LVN",kha,kha
+LAFFLVN,"Afforestation and restoration, LVN",kha,kha
+LBLTLVN,"Built-up land, LVN",kha,kha
+LOCRLVN,"Other crops (cassava, pulses etc., fixed), LVN",kha,kha
+LSUPLVS,"Land supply, LVS",kha,kha
+LCRSLVS,"Cropland (suitable land converted), LVS",kha,kha
+LIRSLVS,"Irrigation scheme development, LVS",kha,kha
+LFORLVS,"Existing forest (protected), LVS",kha,kha
+LAFFLVS,"Afforestation and restoration, LVS",kha,kha
+LBLTLVS,"Built-up land, LVS",kha,kha
+LOCRLVS,"Other crops (cassava, pulses etc., fixed), LVS",kha,kha
+LSUPRVB,"Land supply, RVB",kha,kha
+LCRSRVB,"Cropland (suitable land converted), RVB",kha,kha
+LIRSRVB,"Irrigation scheme development, RVB",kha,kha
+LFORRVB,"Existing forest (protected), RVB",kha,kha
+LAFFRVB,"Afforestation and restoration, RVB",kha,kha
+LBLTRVB,"Built-up land, RVB",kha,kha
+LOCRRVB,"Other crops (cassava, pulses etc., fixed), RVB",kha,kha
+LSUPATH,"Land supply, ATH",kha,kha
+LCRSATH,"Cropland (suitable land converted), ATH",kha,kha
+LIRSATH,"Irrigation scheme development, ATH",kha,kha
+LFORATH,"Existing forest (protected), ATH",kha,kha
+LAFFATH,"Afforestation and restoration, ATH",kha,kha
+LBLTATH,"Built-up land, ATH",kha,kha
+LOCRATH,"Other crops (cassava, pulses etc., fixed), ATH",kha,kha
+LSUPTAN,"Land supply, TAN",kha,kha
+LCRSTAN,"Cropland (suitable land converted), TAN",kha,kha
+LIRSTAN,"Irrigation scheme development, TAN",kha,kha
+LFORTAN,"Existing forest (protected), TAN",kha,kha
+LAFFTAN,"Afforestation and restoration, TAN",kha,kha
+LBLTTAN,"Built-up land, TAN",kha,kha
+LOCRTAN,"Other crops (cassava, pulses etc., fixed), TAN",kha,kha
+LSUPENN,"Land supply, ENN",kha,kha
+LCRSENN,"Cropland (suitable land converted), ENN",kha,kha
+LIRSENN,"Irrigation scheme development, ENN",kha,kha
+LFORENN,"Existing forest (protected), ENN",kha,kha
+LAFFENN,"Afforestation and restoration, ENN",kha,kha
+LBLTENN,"Built-up land, ENN",kha,kha
+LOCRENN,"Other crops (cassava, pulses etc., fixed), ENN",kha,kha
+IMPFERT,Imported nitrogen fertiliser,kt/yr,kt N
+GNH3,Green ammonia fertiliser plant (electrolysis + Haber-Bosch),kt N/yr,kt N
+IMPMAI,Import of Maize,kt/yr,kt
+CMAIRLVN,"Maize, rainfed, LVN",kha,kha
+CMAIILVN,"Maize, irrigated, LVN",kha,kha
+CMAIRLVS,"Maize, rainfed, LVS",kha,kha
+CMAIILVS,"Maize, irrigated, LVS",kha,kha
+CMAIRRVB,"Maize, rainfed, RVB",kha,kha
+CMAIIRVB,"Maize, irrigated, RVB",kha,kha
+CMAIRATH,"Maize, rainfed, ATH",kha,kha
+CMAIIATH,"Maize, irrigated, ATH",kha,kha
+CMAIRTAN,"Maize, rainfed, TAN",kha,kha
+CMAIITAN,"Maize, irrigated, TAN",kha,kha
+CMAIRENN,"Maize, rainfed, ENN",kha,kha
+CMAIIENN,"Maize, irrigated, ENN",kha,kha
+IMPBEA,Import of Beans,kt/yr,kt
+CBEARLVN,"Beans, rainfed, LVN",kha,kha
+CBEARLVS,"Beans, rainfed, LVS",kha,kha
+CBEARRVB,"Beans, rainfed, RVB",kha,kha
+CBEARATH,"Beans, rainfed, ATH",kha,kha
+CBEARTAN,"Beans, rainfed, TAN",kha,kha
+CBEARENN,"Beans, rainfed, ENN",kha,kha
+IMPWHT,Import of Wheat,kt/yr,kt
+CWHTRLVN,"Wheat, rainfed, LVN",kha,kha
+CWHTRRVB,"Wheat, rainfed, RVB",kha,kha
+CWHTIRVB,"Wheat, irrigated, RVB",kha,kha
+CWHTRTAN,"Wheat, rainfed, TAN",kha,kha
+CWHTRENN,"Wheat, rainfed, ENN",kha,kha
+IMPRIC,Import of Rice (paddy),kt/yr,kt
+CRICRLVN,"Rice (paddy), rainfed, LVN",kha,kha
+CRICILVN,"Rice (paddy), irrigated, LVN",kha,kha
+CRICRLVS,"Rice (paddy), rainfed, LVS",kha,kha
+CRICILVS,"Rice (paddy), irrigated, LVS",kha,kha
+CRICRATH,"Rice (paddy), rainfed, ATH",kha,kha
+CRICIATH,"Rice (paddy), irrigated, ATH",kha,kha
+CRICITAN,"Rice (paddy), irrigated, TAN",kha,kha
+IMPPOT,Import of Irish potato,kt/yr,kt
+CPOTRLVN,"Irish potato, rainfed, LVN",kha,kha
+CPOTRLVS,"Irish potato, rainfed, LVS",kha,kha
+CPOTRRVB,"Irish potato, rainfed, RVB",kha,kha
+CPOTRTAN,"Irish potato, rainfed, TAN",kha,kha
+CPOTRENN,"Irish potato, rainfed, ENN",kha,kha
+IMPSUG,Import of Sugarcane,kt/yr,kt
+CSUGRLVN,"Sugarcane, rainfed, LVN",kha,kha
+CSUGRLVS,"Sugarcane, rainfed, LVS",kha,kha
+CSUGILVS,"Sugarcane, irrigated, LVS",kha,kha
+CSUGRRVB,"Sugarcane, rainfed, RVB",kha,kha
+CSUGIATH,"Sugarcane, irrigated, ATH",kha,kha
+CSUGRTAN,"Sugarcane, rainfed, TAN",kha,kha
+CSUGITAN,"Sugarcane, irrigated, TAN",kha,kha
+IMPTEA,Import of Tea (green leaf) (slack for export crops),kt/yr,kt
+CTEARLVN,"Tea (green leaf), rainfed, LVN",kha,kha
+CTEARLVS,"Tea (green leaf), rainfed, LVS",kha,kha
+CTEARRVB,"Tea (green leaf), rainfed, RVB",kha,kha
+CTEARTAN,"Tea (green leaf), rainfed, TAN",kha,kha
+IMPCOF,Import of Coffee (slack for export crops),kt/yr,kt
+CCOFRLVN,"Coffee, rainfed, LVN",kha,kha
+CCOFRLVS,"Coffee, rainfed, LVS",kha,kha
+CCOFRRVB,"Coffee, rainfed, RVB",kha,kha
+CCOFRATH,"Coffee, rainfed, ATH",kha,kha
+CCOFRTAN,"Coffee, rainfed, TAN",kha,kha
+IMPHOR,Import of Horticulture & flowers (slack for export crops),kt/yr,kt
+CHORRLVN,"Horticulture & flowers, rainfed, LVN",kha,kha
+CHORILVN,"Horticulture & flowers, irrigated, LVN",kha,kha
+CHORRLVS,"Horticulture & flowers, rainfed, LVS",kha,kha
+CHORILVS,"Horticulture & flowers, irrigated, LVS",kha,kha
+CHORRRVB,"Horticulture & flowers, rainfed, RVB",kha,kha
+CHORIRVB,"Horticulture & flowers, irrigated, RVB",kha,kha
+CHORRATH,"Horticulture & flowers, rainfed, ATH",kha,kha
+CHORIATH,"Horticulture & flowers, irrigated, ATH",kha,kha
+CHORRTAN,"Horticulture & flowers, rainfed, TAN",kha,kha
+CHORITAN,"Horticulture & flowers, irrigated, TAN",kha,kha
+CHORRENN,"Horticulture & flowers, rainfed, ENN",kha,kha
+CHORIENN,"Horticulture & flowers, irrigated, ENN",kha,kha
+IMPSOR,Import of Sorghum & millet,kt/yr,kt
+CSORRLVN,"Sorghum & millet, rainfed, LVN",kha,kha
+CSORRLVS,"Sorghum & millet, rainfed, LVS",kha,kha
+CSORRRVB,"Sorghum & millet, rainfed, RVB",kha,kha
+CSORRATH,"Sorghum & millet, rainfed, ATH",kha,kha
+CSORRTAN,"Sorghum & millet, rainfed, TAN",kha,kha
+CSORRENN,"Sorghum & millet, rainfed, ENN",kha,kha

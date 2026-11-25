@@ -1,0 +1,12 @@
+build/*.lp
+build/*.sol
+build/muio_*/
+__pycache__/
+*.pyc
+.DS_Store
+# time-slice level result files are large; regenerate with scripts/run_scenarios.py
+results/*/RateOfActivity.csv
+results/*/RateOfUseByTechnology.csv
+results/*/RateOfUseByTechnologyByMode.csv
+results/*/RateOfProductionByTechnologyByMode.csv
+results/*/TotalAnnualTechnologyActivityByMode.csv

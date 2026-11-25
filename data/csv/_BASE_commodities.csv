@@ -1,0 +1,61 @@
+FUEL,DESCRIPTION,UNIT
+ELCTX,Electricity at transmission level,PJ
+ELCFIN,Electricity delivered to final users,PJ
+HFO,Heavy fuel oil,PJ
+DSL,Diesel/kerosene,PJ
+LNG,Imported LNG,PJ
+URN,Nuclear fuel (thermal PJ),PJ
+BAG,Bagasse available for export power,PJ
+WTRRAWLVN,"Renewable surface water, Lake Victoria North basin",MCM
+WTRSUPLVN,"Bulk water supply, Lake Victoria North basin",MCM
+WTRMUNLVN,"Municipal, industrial and livestock water delivered, Lake Victoria North basin",MCM
+WTRIRRLVN,"Irrigation water at field, Lake Victoria North basin",MCM
+WTRRAWLVS,"Renewable surface water, Lake Victoria South basin",MCM
+WTRSUPLVS,"Bulk water supply, Lake Victoria South basin",MCM
+WTRMUNLVS,"Municipal, industrial and livestock water delivered, Lake Victoria South basin",MCM
+WTRIRRLVS,"Irrigation water at field, Lake Victoria South basin",MCM
+WTRRAWRVB,"Renewable surface water, Rift Valley basin",MCM
+WTRSUPRVB,"Bulk water supply, Rift Valley basin",MCM
+WTRMUNRVB,"Municipal, industrial and livestock water delivered, Rift Valley basin",MCM
+WTRIRRRVB,"Irrigation water at field, Rift Valley basin",MCM
+WTRRAWATH,"Renewable surface water, Athi basin",MCM
+WTRSUPATH,"Bulk water supply, Athi basin",MCM
+WTRMUNATH,"Municipal, industrial and livestock water delivered, Athi basin",MCM
+WTRIRRATH,"Irrigation water at field, Athi basin",MCM
+WTRRAWTAN,"Renewable surface water, Tana basin",MCM
+WTRSUPTAN,"Bulk water supply, Tana basin",MCM
+WTRMUNTAN,"Municipal, industrial and livestock water delivered, Tana basin",MCM
+WTRIRRTAN,"Irrigation water at field, Tana basin",MCM
+WTRRAWENN,"Renewable surface water, Ewaso Ng'iro North basin",MCM
+WTRSUPENN,"Bulk water supply, Ewaso Ng'iro North basin",MCM
+WTRMUNENN,"Municipal, industrial and livestock water delivered, Ewaso Ng'iro North basin",MCM
+WTRIRRENN,"Irrigation water at field, Ewaso Ng'iro North basin",MCM
+LNDLVN,"Total land, Lake Victoria North basin",kha
+LCRPLVN,"Cropland, Lake Victoria North basin",kha
+LIRRLVN,"Irrigated cropland (equipped), Lake Victoria North basin",kha
+LNDLVS,"Total land, Lake Victoria South basin",kha
+LCRPLVS,"Cropland, Lake Victoria South basin",kha
+LIRRLVS,"Irrigated cropland (equipped), Lake Victoria South basin",kha
+LNDRVB,"Total land, Rift Valley basin",kha
+LCRPRVB,"Cropland, Rift Valley basin",kha
+LIRRRVB,"Irrigated cropland (equipped), Rift Valley basin",kha
+LNDATH,"Total land, Athi basin",kha
+LCRPATH,"Cropland, Athi basin",kha
+LIRRATH,"Irrigated cropland (equipped), Athi basin",kha
+LNDTAN,"Total land, Tana basin",kha
+LCRPTAN,"Cropland, Tana basin",kha
+LIRRTAN,"Irrigated cropland (equipped), Tana basin",kha
+LNDENN,"Total land, Ewaso Ng'iro North basin",kha
+LCRPENN,"Cropland, Ewaso Ng'iro North basin",kha
+LIRRENN,"Irrigated cropland (equipped), Ewaso Ng'iro North basin",kha
+FERTN,Nitrogen fertiliser,kt N
+CRPMAI,Maize,kt
+CRPBEA,Beans,kt
+CRPWHT,Wheat,kt
+CRPRIC,Rice (paddy),kt
+CRPPOT,Irish potato,kt
+CRPSUG,Sugarcane,kt
+CRPTEA,Tea (green leaf),kt
+CRPCOF,Coffee,kt
+CRPHOR,Horticulture & flowers,kt
+CRPSOR,Sorghum & millet,kt
