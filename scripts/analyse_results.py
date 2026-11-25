@@ -246,6 +246,15 @@ def main():
             df.round(4).to_csv(SUM / f"{s}_{k}.csv")
         heads.append(headline(s, o))
     pd.DataFrame(heads).to_csv(SUM / "headline_comparison.csv", index=False)
+    if "BASE" in allres:   # base-year check against EPRA FY2024/25 (GWh)
+        g = allres["BASE"]["generation_TWh"].loc[2025] * 1000
+        obs = {"Geothermal": 5718.2, "Hydro": 3503.5, "Wind": 1907.6, "Solar": 473.3, "Imports": 1533.9,
+               "Other (oil, nuclear, bagasse)": 1247.9}
+        cal = pd.DataFrame({"Model 2025 (GWh)": g.reindex(obs.keys()).round(0), "EPRA FY2024/25 (GWh)": pd.Series(obs)})
+        cal.loc["Total"] = cal.sum()
+        cal["Difference"] = (cal.iloc[:, 0] / cal.iloc[:, 1] - 1).map(lambda x: f"{100 * x:+.1f}%")
+        cal.to_csv(SUM / "calibration_2025.csv")
+        print(cal.to_string())
     print(pd.DataFrame(heads).T.to_string())
     figures(allres)
 
