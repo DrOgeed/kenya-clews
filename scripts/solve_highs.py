@@ -23,15 +23,18 @@ def solve(lp, sol, threads=2):
     obj = h.getInfo().objective_function_value
     s = h.getSolution()
     lpm = h.getLp()
-    names = lpm.col_names_
+    names = list(lpm.col_names_)
+    cl, cu = list(lpm.col_lower_), list(lpm.col_upper_)
+    rl, ru, rn = list(lpm.row_lower_), list(lpm.row_upper_), list(lpm.row_names_)
+    cv, cd, rv, rd = list(s.col_value), list(s.col_dual), list(s.row_value), list(s.row_dual)
     # HiGHS "style 1" text layout; without crossover there is no basis, so status is reported as BS
     with open(sol, "w") as f:
         f.write("Columns\n    Index Status        Lower        Upper       Primal         Dual  Name\n")
-        for i, (n, v, d) in enumerate(zip(names, s.col_value, s.col_dual)):
-            f.write(f"{i:9d}     BS {lpm.col_lower_[i]:12.6g} {lpm.col_upper_[i]:12.6g} {v:12.6g} {d:12.6g}  {n}\n")
+        for i, (n, v, d) in enumerate(zip(names, cv, cd)):
+            f.write(f"{i:9d}     BS {cl[i]:12.6g} {cu[i]:12.6g} {v:12.6g} {d:12.6g}  {n}\n")
         f.write("Rows\n    Index Status        Lower        Upper       Primal         Dual  Name\n")
-        for i, (n, v, d) in enumerate(zip(lpm.row_names_, s.row_value, s.row_dual)):
-            f.write(f"{i:9d}     BS {lpm.row_lower_[i]:12.6g} {lpm.row_upper_[i]:12.6g} {v:12.6g} {d:12.6g}  {n}\n")
+        for i, (n, v, d) in enumerate(zip(rn, rv, rd)):
+            f.write(f"{i:9d}     BS {rl[i]:12.6g} {ru[i]:12.6g} {v:12.6g} {d:12.6g}  {n}\n")
         f.write(f"\nModel status: {status}\n\n# Primal solution values\nFeasible\nObjective {obj}\n")
     print(f"{lp}: {status}, objective {obj:,.1f} MUSD, {time.time() - t:.0f}s", flush=True)
     return status, obj
