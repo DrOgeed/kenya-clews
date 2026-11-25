@@ -129,9 +129,9 @@ Two ways, for each scenario:
 1. **Restore the ready-made case** `muio/KenyaCLEWs_<SCENARIO>.zip` (MUIO: Case > Upload case). This case was produced by running MUIO's own importer on the template, with time slices already mapped to seasons and daily brackets and the reserve margin entered as user-defined constraint `RM`.
 2. **Import the Excel template** `muio/KenyaCLEWs_<SCENARIO>.xlsx` (MUIO: Import from template). After import, map each time slice to its season and daily bracket (names tell you: `S2P` = season 2, evening peak) and add the `RM` constraint from `muio/KenyaCLEWs_<SCENARIO>_reserve_margin_UDC.csv`.
 
-`python scripts/verify_muio.py BASE` unpacks the case into a scratch MUIO store, makes MUIO write its data file and builds the LP with MUIO's `model.v.5.7.txt`, as a check that the case is complete.
+The ready-made cases also carry what MUIO's template importer does not read: the 10% discount rate per technology (MUIO otherwise applies 5%), the day split and days-in-day-type values used by storage, and the reserve-margin constraint.
 
-Differences to expect between the two platforms: MUIO has no `ReserveMargin` parameter, so the reserve margin is a capacity constraint against the evening peak found in the otoole run rather than an endogenous peak; results should match closely, not exactly.
+**Verified:** `python scripts/verify_muio.py BASE --solve` unpacks the case into a scratch MUIO store, lets MUIO's own code write and preprocess the data file, and solves it with MUIO's `model.v.5.7.txt`. The MUIO run is optimal with a total discounted cost of USD 78,353.9 million against 78,357.4 million in the otoole run, a difference of 0.004%. The small gap comes from MUIO's reserve margin, which is a capacity constraint against the evening peak found in the otoole run because MUIO has no `ReserveMargin` parameter.
 
 ## Repository layout
 

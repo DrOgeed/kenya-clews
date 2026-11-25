@@ -122,6 +122,8 @@ def build_template(scen):
                 sheets[sheet_name(p)] = wide
             else:
                 sheets[sheet_name(p)] = df
+    # MUIO applies a per-technology discount rate (default 0.05); set it to the model's rate for every technology
+    sheets["DiscountRateIdv"] = pd.DataFrame({"REGION": K.REGION, "TECHNOLOGY": techs.VALUE, "VALUE": K.DISCOUNT_RATE})
     out = ROOT / "muio" / f"KenyaCLEWs_{scen}.xlsx"
     out.parent.mkdir(exist_ok=True)
     with pd.ExcelWriter(out, engine="openpyxl") as xw:
@@ -216,6 +218,21 @@ print(r['status_code'])
             val = -K.CAPACITY_CREDIT[t] if key == "CCM" else 0
             rytcn[key]["SC_0"].append(dict({"TechId": tid[t], "ConId": "CO_0"}, **{y: val for y in ys}))
     json.dump(rycn, open(cdir / "RYCn.json", "w"))
+    # MUIO's template importer skips DaySplit and DaysInDayType; write them into the case directly
+    dtb_hours = {k: v[1] for k, v in K.BRACKETS.items()}
+    ryd = json.load(open(cdir / "RYDtb.json"))
+    dtbnum = {d["DtbId"]: int(d["Dtb"]) for d in gen["osy-dtb"]}
+    for key in ryd:
+        for row in ryd[key]["SC_0"]:
+            for y in ys:
+                row[y] = round(dtb_hours[dtbnum[row["DtbId"]]] / 8760, 8)
+    json.dump(ryd, open(cdir / "RYDtb.json", "w"))
+    rys = json.load(open(cdir / "RYSeDt.json"))
+    for key in rys:
+        for row in rys[key]["SC_0"]:
+            for y in ys:
+                row[y] = 7
+    json.dump(rys, open(cdir / "RYSeDt.json", "w"))
     json.dump(rytcn, open(cdir / "RYTCn.json", "w"))
     udc.to_csv(cdir / "reserve_margin_UDC.csv", index=False)
     out = ROOT / "muio" / case

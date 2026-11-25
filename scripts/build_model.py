@@ -477,7 +477,7 @@ def build(scen):
         m.yearly("AccumulatedAnnualDemand", (R, "CRP" + c), dfn)
         t = "IMP" + c
         setup(t, f"Import of {name}" + (" (slack for export crops)" if kind == "export" else ""),
-              capunit="kt/yr", actunit="kt", c2a=1, residual=1e6, vom=impc / 1000)
+              capunit="kt/yr", actunit="kt", c2a=1, residual=1e5, vom=impc / 1000)   # < MUIO's 999,999 cap
         io("OutputActivityRatio", t, "CRP" + c, 1)
 
         for b in K.BASINS:
