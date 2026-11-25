@@ -35,7 +35,7 @@ Every input lives in [`scripts/kenya_inputs.py`](scripts/kenya_inputs.py), and e
 | Geothermal capex | 3,500 $/kW (2025) to 3,000 (2050) | LCPDP candidates 3,500-3,808; IRENA global 4,015 |
 | Wind capex | 1,600 to 1,150 $/kW | LCPDP 1,886 (100 MW candidate); IRENA global 1,041 |
 | Utility solar capex | 900 to 450 $/kW | LCPDP 1,128-1,277; IRENA global 691 |
-| Battery | packaged 4 h: 1,300 $/kW (2025) to 630 (2050), extra energy 25 $/kWh; round trip 0.85; firm credit 0.8 | ATB moderate |
+| Battery | converter 300 $/kW + cells 250 $/kWh (2025) to 150 + 120 (2050), sized separately; round trip 0.85 | ATB moderate |
 | High Grand Falls | 693 MW, 3,708 $/kW, earliest 2033, plus 150 MCM of regulated Tana water per PJ generated | LCPDP cost; PPP terminated July 2025, so treated as an option only |
 | Karura | 90 MW, 3,889 $/kW | LCPDP |
 | Nuclear | 7,000 to 6,000 $/kW, earliest 2035, max 1 GW to 2040 | Assumption (NuPEA's official 3,600-5,000 $/kW judged optimistic) |
@@ -44,7 +44,7 @@ Every input lives in [`scripts/kenya_inputs.py`](scripts/kenya_inputs.py), and e
 | Ethiopia import | 6.5 USc/kWh; 60% take-or-pay floor on 400 MW to 2045 | Price from EPRA25 and Ecofin 2026; floor is an assumption |
 | Emission factors | HFO 77.4, diesel 74.1, gas 56.1 kt CO2/PJ | IPCC |
 | Reserve margin | 0.95 (2025) rising to 1.18 from 2032, on the evening-peak slice | Assumption, LCPDP practice is about 15% on instantaneous peak |
-| Capacity credits | geothermal 0.9, existing hydro 0.6-0.8, thermal 0.9, Ethiopia 0.8, wind 0.10-0.15, solar 0, 4 h batteries 0.8 | Assumption |
+| Capacity credits | geothermal 0.9, existing hydro 0.6-0.8, thermal 0.9, Ethiopia 0.8, wind 0.10-0.15, solar 0, batteries 0.25 | Assumption |
 
 ### Demand rule
 

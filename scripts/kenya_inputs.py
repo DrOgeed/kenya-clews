@@ -247,10 +247,10 @@ POWER = {
     "IMPELCEAP": dict(name="Electricity import, Uganda/Tanzania", residual={2025: 0.20, 2075: 0.20},
                       capex=None, fom=0, vom=27.8, life=99, cf=0.60),     # 10 USc/kWh [ASSUMP]
 }
-# 4-hour battery priced as a package: power capex = converter + 4 h of cells, so every kW built carries
-# 4 h of energy and can be credited as firm. Extra energy beyond 4 h carries a nominal 10% of cell cost.
-BATTERY = dict(capex_power={2025: 300 + 4 * 250, 2050: 150 + 4 * 120, 2075: 140 + 4 * 110},   # $/kW [ATB moderate]
-               capex_energy={2025: 25, 2050: 12, 2075: 11},            # $/kWh beyond the packaged 4 h
+# OSeMOSYS sizes storage energy (PJ) and converter power (GW) separately, so each is priced at its own
+# real cost; the firm credit below is kept modest because energy duration is not tied to power.
+BATTERY = dict(capex_power={2025: 300, 2050: 150, 2075: 140},          # $/kW converter/inverter [ATB]
+               capex_energy={2025: 250, 2050: 120, 2075: 110},         # $/kWh cells [ATB moderate]
                fom=8, life=15, rte=0.85, maxinv={2025: 0.0, 2026: 0.3, 2035: 1.0}, first=2026)
 
 # Hydro seasonal shape (relative availability; long rains high, Jan-Mar low) [EPRA25 monthly hydro]
@@ -272,7 +272,7 @@ CAPACITY_CREDIT = {   # share of capacity counted as firm at the evening peak [A
     "PWRHYDHGF": 0.70, "PWRHYDKAR": 0.60, "PWRHYDNEW": 0.60, "PWRHYDSML": 0.40,
     "PWRWNDT1": 0.15, "PWRWNDT2": 0.10, "PWRSOL": 0.0, "PWRSOLDG": 0.0,
     "PWRDSL": 0.90, "PWROCGDSL": 0.90, "PWROCGLNG": 0.90, "PWRCCGLNG": 0.90, "PWRNUC": 0.90,
-    "PWRBAG": 0.40, "IMPELCETH": 0.80, "IMPELCEAP": 0.50, "BATSTOR": 0.80,   # packaged 4 h battery vs 4 h peak slice
+    "PWRBAG": 0.40, "IMPELCETH": 0.80, "IMPELCEAP": 0.50, "BATSTOR": 0.25,   # modest: storage energy is sized separately from power
 }
 # Base-year (2025) calibration to observed dispatch, GWh [EPRA25]
 CALIB_2025_GWH = {
