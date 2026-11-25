@@ -44,7 +44,7 @@ Every input lives in [`scripts/kenya_inputs.py`](scripts/kenya_inputs.py), and e
 | Ethiopia import | 6.5 USc/kWh; 60% take-or-pay floor on 400 MW to 2045 | Price from EPRA25 and Ecofin 2026; floor is an assumption |
 | Emission factors | HFO 77.4, diesel 74.1, gas 56.1 kt CO2/PJ | IPCC |
 | Reserve margin | 0.95 (2025) rising to 1.18 from 2032, on the evening-peak slice | Assumption, LCPDP practice is about 15% on instantaneous peak |
-| Capacity credits | geothermal 0.9, existing hydro 0.6-0.8, thermal 0.9, Ethiopia 0.8, wind 0.10-0.15, solar 0, batteries 0.25 | Assumption |
+| Capacity credits | geothermal 0.9, existing hydro 0.6-0.8, thermal 0.9, Ethiopia 0.8, wind 0.10-0.15, solar 0, batteries 0 (energy duration is not tied to power in OSeMOSYS) | Assumption |
 
 ### Demand rule
 

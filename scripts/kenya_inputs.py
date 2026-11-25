@@ -272,7 +272,9 @@ CAPACITY_CREDIT = {   # share of capacity counted as firm at the evening peak [A
     "PWRHYDHGF": 0.70, "PWRHYDKAR": 0.60, "PWRHYDNEW": 0.60, "PWRHYDSML": 0.40,
     "PWRWNDT1": 0.15, "PWRWNDT2": 0.10, "PWRSOL": 0.0, "PWRSOLDG": 0.0,
     "PWRDSL": 0.90, "PWROCGDSL": 0.90, "PWROCGLNG": 0.90, "PWRCCGLNG": 0.90, "PWRNUC": 0.90,
-    "PWRBAG": 0.40, "IMPELCETH": 0.80, "IMPELCEAP": 0.50, "BATSTOR": 0.25,   # modest: storage energy is sized separately from power
+    "PWRBAG": 0.40, "IMPELCETH": 0.80, "IMPELCEAP": 0.50, "BATSTOR": 0.0,
+    # batteries: no firm credit. OSeMOSYS sizes storage energy separately from converter power, and any
+    # credit was taken up by converters with ~1 h of energy. Storage still earns its peak-shifting value.
 }
 # Base-year (2025) calibration to observed dispatch, GWh [EPRA25]
 CALIB_2025_GWH = {
