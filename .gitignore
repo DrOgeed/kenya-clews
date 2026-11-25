@@ -10,3 +10,4 @@ results/*/RateOfUseByTechnology.csv
 results/*/RateOfUseByTechnologyByMode.csv
 results/*/RateOfProductionByTechnologyByMode.csv
 results/*/TotalAnnualTechnologyActivityByMode.csv
+build/run.log
