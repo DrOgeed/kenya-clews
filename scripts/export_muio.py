@@ -137,8 +137,10 @@ def reserve_margin_udc(scen):
     peak = {}
     if res.exists():
         r = pd.read_csv(res)
-        r = r[(r.FUEL == "ELCTX")]
-        peak = (r.groupby(["YEAR", "TIMESLICE"]).VALUE.sum() / K.CAP2ACT_POWER).groupby("YEAR").max().to_dict()
+        r = r[(r.FUEL == "ELCFIN")]      # same basis as the otoole run: delivered electricity, grossed up for losses
+        from build_model import interp as _i
+        peak = (r.groupby(["YEAR", "TIMESLICE"]).VALUE.sum() / K.CAP2ACT_POWER).groupby("YEAR").max()
+        peak = {y: v / _i(K.TD_EFF, y) for y, v in peak.items()}
     else:   # fall back to the exogenous demand peak at transmission level
         d = pd.read_csv(ROOT / "data" / "csv" / scen / "SpecifiedAnnualDemand.csv").set_index("YEAR").VALUE
         prof = pd.read_csv(ROOT / "data" / "csv" / scen / "SpecifiedDemandProfile.csv")

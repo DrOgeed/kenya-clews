@@ -277,6 +277,8 @@ def build(scen):
             io("InputActivityRatio", t, d["fuel"], 1 / d["eff"])
         if sw["re100"] and t in fossil:
             m.yearly("TotalTechnologyAnnualActivityUpperLimit", (R, t), lambda y: None if y < 2035 else 0.0)
+            # no new fossil plant at all, so firm capacity has to come from renewables, not idle standby turbines
+            m.yearly("TotalAnnualMaxCapacityInvestment", (R, t), lambda y: 0.0)
 
     # ---- battery storage
     B = K.BATTERY
@@ -297,9 +299,13 @@ def build(scen):
     m.yearly("ResidualStorageCapacity", (R, "BATT"), lambda y: 0.0)
     m.yearly("MinStorageCharge", (R, "BATT"), lambda y: 0.0)
 
-    # ---- reserve margin on transmission-level electricity
-    m.yearly("ReserveMargin", (R,), lambda y: interp(K.RESERVE_MARGIN, y))
-    m.yearly("ReserveMarginTagFuel", (R, "ELCTX"), lambda y: 1)
+    # ---- reserve margin
+    # OSeMOSYS compares firm capacity with the PRODUCTION of the tagged fuel in each time slice. Tagging
+    # transmission-level electricity would let surplus wind/solar output raise the requirement (and make
+    # load shedding a way to lower it). Tagging delivered electricity (ELCFIN: grid deliveries, rooftop PV
+    # and any unserved energy) ties the margin to demand; dividing by T&D efficiency grosses it up for losses.
+    m.yearly("ReserveMargin", (R,), lambda y: interp(K.RESERVE_MARGIN, y) / td_eff(y))
+    m.yearly("ReserveMarginTagFuel", (R, "ELCFIN"), lambda y: 1)
     for t, cc in K.CAPACITY_CREDIT.items():
         if cc > 0:
             m.yearly("ReserveMarginTagTechnology", (R, t), lambda y, cc=cc: cc)
@@ -393,8 +399,11 @@ def build(scen):
 
     # ---- LAND, per basin
     built = lambda y, b: K.BUILT_2025_TOTAL * K.POP_SHARE[b] * pop[y] / pop[2025] * 1.01 ** (y - 2025)
-    irr_target = {2025: 288.0, 2035: 690.0, 2050: 1000.0, 2075: 1000.0}
+    irr_target = {2025: 288.0, 2035: 690.0, 2050: 1000.0, 2075: 1000.0}   # kha, NISIP
     pot_total = sum(K.IRR_POTENTIAL.values())
+    irr_base = sum(K.IRR_RESIDUAL.values())
+    rem_total = sum(K.IRR_POTENTIAL[b] - K.IRR_RESIDUAL[b] for b in K.BASINS)
+    irr_new = {}   # IRRIG only: new scheme area per basin, which must be cropped
     for b in K.BASINS:
         for f, d in [("LND", "Total land"), ("LCRP", "Cropland"), ("LIRR", "Irrigated cropland (equipped)")]:
             m.fuel(f + b, f"{d}, {K.BASIN_NAMES[b]} basin", "kha")
@@ -409,13 +418,18 @@ def build(scen):
         io("OutputActivityRatio", "LCRS" + b, "LCRP" + b, 1)
 
         share = K.IRR_POTENTIAL[b] / pot_total
-        mincap = None
+        mincap, maxinv = None, K.IRR_MAX_NEW_NATIONAL * share
         if sw["irrig"]:
-            mincap = lambda y, b=b, sh=share: max(K.IRR_RESIDUAL[b], interp(irr_target, y) * sh)
+            # new area allocated by each basin's remaining potential, with build pace to match the national target
+            rem = (K.IRR_POTENTIAL[b] - K.IRR_RESIDUAL[b]) / rem_total
+            req = lambda y, b=b, rem=rem: K.IRR_RESIDUAL[b] + max(0.0, interp(irr_target, y) - irr_base) * rem
+            mincap = req
+            irr_new[b] = lambda y, b=b, rem=rem: max(0.0, interp(irr_target, y) - irr_base) * rem
+            maxinv = 1.10 * max(interp(irr_target, y) - interp(irr_target, y - 1) for y in Y[1:]) * rem
         setup("LIRS" + b, f"Irrigation scheme development, {b}", capunit="kha", actunit="kha", c2a=1, life=30,
               residual=K.IRR_RESIDUAL[b], capex=K.IRR_CAPEX, fom=0.15, maxcap=K.IRR_POTENTIAL[b],
-              maxinv=K.IRR_MAX_NEW_NATIONAL * share, first=2026, mincap=mincap,
-              act_lo=(lambda y, b=b, sh=share: 0.9 * max(K.IRR_RESIDUAL[b], interp(irr_target, y) * sh)) if sw["irrig"] else None)
+              maxinv=maxinv, first=2026, mincap=mincap,
+              act_lo=(lambda y, f=mincap: 0.9 * f(y)) if sw["irrig"] else None)
         io("InputActivityRatio", "LIRS" + b, "LCRP" + b, 1)
         io("OutputActivityRatio", "LIRS" + b, "LIRR" + b, 1)
 
@@ -484,8 +498,15 @@ def build(scen):
             allowed = c in K.IRRIGABLE_CROPS and (ibase > 0 or c in ("HOR", "MAI"))
             if allowed:
                 t = f"C{c}I{b}"
+                lo = (lambda y, bs=ibase: retain(bs, y)) if ibase else None
+                if b in irr_new and c in ("MAI", "RIC", "HOR"):
+                    # NISIP: 85% of new scheme area cropped, split maize 40%, rice 30% (where rice schemes
+                    # exist, otherwise horticulture), horticulture the rest [ASSUMP]
+                    has_rice = K.IRRIGATED_AREA_2025.get("RIC", {}).get(b, 0) > 0
+                    sh = {"MAI": 0.40, "RIC": 0.30 if has_rice else 0.0, "HOR": 0.30 if has_rice else 0.60}[c]
+                    lo = lambda y, bs=ibase, sh=sh, nw=irr_new[b]: (retain(bs, y) if bs else 0.0) + 0.85 * sh * nw(y)
                 setup(t, f"{name}, irrigated, {b}", capunit="kha", actunit="kha", c2a=1, residual=1e4,
-                      vom=ci / 1000, act_lo=(lambda y, bs=ibase: retain(bs, y)) if ibase else None)
+                      vom=ci / 1000, act_lo=lo)
                 io("InputActivityRatio", t, "LIRR" + b, 1)
                 io("InputActivityRatio", t, "WTRIRR" + b, mm / 100)
                 io("InputActivityRatio", t, "FERTN", ni / 1000)

@@ -134,6 +134,9 @@ def summarise(scen):
 
     out["emissions_ktCO2"] = emi.pivot_table(index="YEAR", columns="EMISSION", values="VALUE", aggfunc="sum").fillna(0)
     out["total_discounted_cost_MUSD"] = pd.DataFrame({"VALUE": [tdc.VALUE.sum()]})
+    lirs = cap[cap.TECHNOLOGY.str.startswith("LIRS")].copy()
+    lirs["BASIN"] = lirs.TECHNOLOGY.str[4:]
+    out["irrigation_schemes_kha"] = lirs.pivot_table(index="YEAR", columns="BASIN", values="VALUE", aggfunc="sum").fillna(0)
     return out
 
 
@@ -149,12 +152,17 @@ def headline(scen, o):
         row[f"Wind+solar share {y}"] = f"{100 * (at(g, y, 'Wind') + at(g, y, 'Solar')) / tot:.0f}%" if tot else ""
     inv = o["investment_bnUSD"]
     row["Investment 2026-2050 (bn USD)"] = round(inv[["2026-2035", "2036-2050"]].sum().sum(), 1)
-    row["Irrigated area 2050 (kha)"] = round(o["irrigated_area_by_basin_kha"].loc[2050].sum(), 0) if 2050 in o["irrigated_area_by_basin_kha"].index else 0
+    row["Irrigation schemes 2050 (kha)"] = round(o["irrigation_schemes_kha"].loc[2050].sum(), 0) if 2050 in o["irrigation_schemes_kha"].index else 0
+    row["Irrigated cropped area 2050 (kha)"] = round(o["irrigated_area_by_basin_kha"].loc[2050].sum(), 0) if 2050 in o["irrigated_area_by_basin_kha"].index else 0
     row["Nexus electricity 2050 (TWh)"] = round(o["nexus_electricity_TWh"].loc[2050].sum(), 2) if 2050 in o["nexus_electricity_TWh"].index else 0
     e = o["emissions_ktCO2"]
     row["CO2 2050 (Mt)"] = round(e.loc[2050].sum() / 1000, 2) if 2050 in e.index else 0
     row["Unserved water 2050 (MCM)"] = round(o["unserved_water_MCM"].loc[2050].sum(), 0) if 2050 in o["unserved_water_MCM"].index else 0
-    row["Total discounted cost (bn USD)"] = round(o["total_discounted_cost_MUSD"].VALUE.sum() / 1000, 1)
+    import json
+    sol = json.load(open(RES / scen / "_solve.json"))
+    row["Total discounted system cost (bn USD)"] = round(sol["objective_MUSD"] / 1000, 2)
+    g2 = o["generation_TWh"]
+    row["Unserved electricity 2026-2075 (TWh)"] = round(g2.get("Unserved", pd.Series(dtype=float)).sum(), 2)
     return row
 
 
