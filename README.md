@@ -4,7 +4,26 @@ An open OSeMOSYS model of Kenya's Climate, Land, Energy and Water systems (CLEWs
 
 Author: Edwin Mwema Ogeto ([@DrOgeed](https://github.com/DrOgeed)). Companion to the [KEZERT road transport model](https://github.com/DrOgeed/kenya-zero-emission-road-transport).
 
-<!-- FINDINGS -->
+## Key findings for investment policy
+
+Results from five scenarios solved to optimality, 2025-2075, costs in 2025 US dollars at a 10% real discount rate. The 2025 base year reproduces EPRA FY2024/25 generation by source within 1% (total within 0.6%).
+
+1. **Geothermal is the backbone and the single largest investment.** Least-cost capacity grows from 0.94 GW today to 1.4 GW by 2029, 2.5 GW by 2050 and 5.5 GW by 2075, supplying 42% of electricity in 2050 and 56% in 2075. It takes USD 6.0 billion of the USD 19.6 billion power, water and agriculture investment needed in 2026-2050 (BASE). With faster demand growth (LCPDP) geothermal reaches 4.0 GW by 2050 and USD 10.8 billion. Every scenario picks it, including the climate-stress case.
+2. **Turkana-corridor wind is the cheapest energy and is fully used by the mid-2040s.** Wind reaches the modelled 3 GW limit of the high-wind corridor by 2046 (USD 4.0 billion), producing about a third of 2050 supply. Lower-quality wind sites are never chosen, which makes transmission to the corridor, and a better estimate of how much the corridor can host, a priority.
+3. **Solar grows steadily but is held back by the evening peak.** Utility and rooftop PV reach about 2 GW by 2050 and 4 GW by 2075. Peak demand falls at 18:00-22:00, when solar produces almost nothing, so solar adds energy but not firm capacity.
+4. **The real constraint is firm capacity for the evening peak, not energy.** Peak delivered load rises from 1.7 GW (2025) to 4.8 GW (2050) and 8.1 GW (2075). Beyond geothermal, the cheapest way to hold an 18% reserve margin is about 1.3 GW of fast-start gas turbines by 2035 and 3 GW by 2050, run under 4% of the year (power CO2 stays below 0.45 Mt/yr to 2050). This is reserve capacity, not baseload. Long-duration storage with contracted duration, demand response, faster geothermal drilling or a firm Ethiopian import contract could replace it, and are worth costing directly.
+5. **A 100% renewable grid from 2035 (NDC 3.0) is cheap, provided firm backup is kept.** Banning fossil generation from 2035 raises total system cost by only 0.1% (USD 0.1 billion discounted). It shifts investment towards geothermal (2.9 GW by 2050) and batteries (0.5 GW), and keeps about 2.6 GW of standby turbines that never run. Without any new fossil backup the 18% reserve margin cannot be met from about 2030, because geothermal can only be drilled at 0.15-0.25 GW a year and batteries carry no firm credit in this model. Firm renewable capacity is therefore the binding issue for the NDC, not cost.
+6. **Climate stress is affordable but shifts supply away from hydro.** With hydro availability down 30% and Tana, Athi, Ewaso Ng'iro and Rift Valley runoff down 15% by 2050, plus net-zero power CO2, system cost rises 3.1%. Hydro output falls from 3.5 to 2.5 TWh; geothermal and afforestation (195 kha by 2075, offsetting residual peaker emissions) fill the gap.
+7. **No nuclear, no coal and no new standalone large hydro in any least-cost scenario.** At 6,000-7,000 USD/kW nuclear is never selected, even under net zero. New large hydro is not built as a power project. **High Grand Falls is built only when Tana irrigation expands** (IRRIG scenario), because its regulated water (about 1,500 MCM/yr) then has value. It is a water-and-food investment that also produces power, and should be appraised that way.
+8. **Green ammonia becomes a competitive domestic fertiliser industry from the 2040s.** Electrolytic ammonia undercuts imported nitrogen from about 2040 and supplies about 250 kt N/yr by 2050 (USD 1.0 billion), using 3.7 TWh of electricity, 9% of 2050 supply. It is the largest single new link between the energy and food systems.
+9. **Irrigation expansion is a food-security choice with a clear price.** Least cost does not expand irrigation: at USD 10,000/ha, irrigated maize, rice and wheat cost more than imports, so irrigated area stays near 250 kha. Forcing the NISIP target (1,000 kha of schemes by 2050, 757 kha cropped) costs USD 5.6 billion more in discounted terms (+7.2%) and USD 11.6 billion more investment to 2050. It cuts rice imports from 76% to 41% of supply. It also adds about 1.9 TWh of electricity demand in 2050 for pumping, water supply and fertiliser, triples the Tana to Athi transfer (to 666 MCM/yr) and needs High Grand Falls.
+10. **Water, not energy, limits the Athi basin.** Nairobi's demand needs Athi dam yield to more than double (250 to 574 MCM/yr by 2050), full use of Athi groundwater, and the Tana transfer. Under irrigation expansion every basin draws more surface water, and Ewaso Ng'iro shifts to groundwater.
+
+**Bottom line for investment priorities, 2026-2050 (BASE):** geothermal (USD 6.0 billion), Turkana-corridor wind plus its transmission (USD 4.0 billion), firm peaking capacity (USD 2.9 billion, technology open), water supply for Athi and Tana (USD 2.5 billion), utility and rooftop solar (USD 1.3 billion), grid expansion and loss reduction (USD 1.2 billion), green ammonia (USD 1.0 billion) and bagasse cogeneration (USD 0.4 billion).
+
+![Electricity generation by source](results/figures/generation_mix.png)
+![Capital investment by sector](results/figures/investment_by_sector.png)
+
 
 ## What the model covers
 
@@ -19,7 +38,7 @@ Author: Edwin Mwema Ogeto ([@DrOgeed](https://github.com/DrOgeed)). Companion to
 | Land | land balance per basin: cropland (within suitable land), irrigation schemes, protected forest, afforestation, built-up land, other crops, rangeland as the remainder |
 | Crops | maize, beans, wheat, rice, potatoes, sugarcane, tea, coffee, horticulture, sorghum/millet; rainfed and irrigated, with yields, costs, fertiliser and irrigation water; imports as an alternative to domestic production |
 | Links | irrigation and water supply draw on electricity; hydropower loses water to reservoir evaporation and High Grand Falls supplies regulated Tana water; sugarcane supplies bagasse for power; green ammonia turns electricity and water into fertiliser; afforestation removes CO2 |
-| Size | 201 technologies, 60 commodities, about 220,000 constraints per scenario |
+| Size | 207 technologies, 60 commodities, about 220,000 constraints and 165,000 variables per scenario; about 4 minutes per solve with HiGHS |
 
 ### Reference energy system (simplified)
 
@@ -66,11 +85,31 @@ Final grid demand grows each year at **3 x the UN World Population Prospects 202
 |---|---|
 | **BASE** | Demographic demand rule, least cost, current policy (no new coal; Ethiopia contract honoured to 2045) |
 | **LCPDP** | Demand follows the LCPDP 2024-2043 Reference forecast (6.6%/yr) to 2043, then the 3x rule |
-| **RE100** | NDC 3.0: 100% renewable grid from 2035 (no fossil generation, no nuclear) |
+| **RE100** | NDC 3.0: 100% renewable generation from 2035 (no fossil generation, no nuclear); standby firm capacity may be kept |
 | **NZDRY** | Net-zero power CO2 by 2050 (afforestation offsets allowed) plus climate stress: hydro availability down 30% by 2050, runoff down 15% in Athi, Tana, Ewaso Ng'iro and Rift Valley, rainfed yields down 10% |
-| **IRRIG** | National Irrigation Sector Investment Plan: irrigated area forced to 690 kha by 2035 and 1,000 kha by 2050 |
+| **IRRIG** | National Irrigation Sector Investment Plan: schemes reach 690 kha by 2035 and 1,000 kha by 2050, allocated by remaining basin potential, with 85% of new area cropped (maize 40%, rice 30% where rice schemes exist, horticulture the rest) |
 
-<!-- RESULTS -->
+## Scenario comparison
+
+| | BASE | LCPDP | RE100 | NZDRY | IRRIG |
+|---|---|---|---|---|---|
+| Total discounted system cost (bn USD) | 78.36 | 81.73 | 78.45 | 80.80 | 83.98 |
+| Change vs BASE | | +4.3% | +0.1% | +3.1% | +7.2% |
+| Investment 2026-2050 (bn USD) | 19.6 | 27.4 | 20.6 | 20.2 | 31.2 |
+| Generation 2050 (TWh) | 40.9 | 53.4 | 41.9 | 41.3 | 43.1 |
+| Geothermal share 2050 / 2075 | 42% / 56% | 51% / 58% | 48% / 63% | 45% / 56% | 39% / 54% |
+| Wind + solar share 2050 | 43% | 35% | 39% | 43% | 42% |
+| Geothermal capacity 2050 (GW) | 2.5 | 4.0 | 2.9 | 2.7 | 2.5 |
+| Gas turbines 2050 (GW, reserve) | 3.0 | 4.0 | 2.6 (standby) | 2.8 | 2.6 |
+| Power CO2 2050 (Mt) | 0.31 | 0.65 | 0.0 | 0.0 | 0.08 |
+| Irrigation schemes / cropped 2050 (kha) | 288 / 248 | 288 / 248 | 288 / 248 | 289 / 226 | 1,000 / 757 |
+| Water, irrigation and fertiliser electricity 2050 (TWh) | 4.9 | 4.9 | 4.9 | 5.2 | 6.8 |
+| Unserved electricity or municipal water | none | none | none | none | none |
+
+Full tables per scenario are in [`results/summary/`](results/summary/) (generation, capacity, investment by sector and period, water supply and use by basin, crop areas, crop supply and imports, fertiliser, emissions) and the 2025 calibration in [`results/summary/calibration_2025.csv`](results/summary/calibration_2025.csv).
+
+![Water withdrawals by basin, 2050](results/figures/water_use_2050.png)
+
 
 ## Run it yourself
 

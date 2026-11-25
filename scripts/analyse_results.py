@@ -36,7 +36,7 @@ INV_SECTORS = {
     "Battery storage": ["BATSTOR"], "Hydropower": [g for g in GEN_GROUPS[1][1]],
     "Gas (LNG)": ["PWROCGLNG", "PWRCCGLNG"], "Nuclear": ["PWRNUC"], "Bagasse cogeneration": ["PWRBAG"],
     "Grid (T&D)": ["TRNELC"],
-    "Water supply (dams, boreholes, treatment, transfer, desalination)":
+    "Water supply":
         [f"{p}{b}" for p in ("WDAM", "WGWT", "WTRT") for b in K.BASINS] + ["WTRFTA", "WDESATH"],
     "Irrigation (schemes and on-farm)": [f"{p}{b}" for p in ("LIRS", "WIRS", "WIRD") for b in K.BASINS],
     "Green ammonia fertiliser": ["GNH3"],
@@ -210,7 +210,7 @@ def figures(allres):
     for i, s in enumerate(scens):
         ax.barh([k + i * h for k in range(len(inv))], inv[s], height=h * 0.9, color=pal[i], label=s)
     ax.set_yticks([k + h * (len(scens) - 1) / 2 for k in range(len(inv))])
-    ax.set_yticklabels([x if len(x) < 38 else x[:36] + "..." for x in inv.index], fontsize=8)
+    ax.set_yticklabels(list(inv.index), fontsize=8)
     style(ax, "Capital investment 2026-2050 by sector", "")
     ax.set_xlabel("billion USD (2025, undiscounted)", color="#666666", fontsize=9)
     ax.grid(axis="x", color="#eeeeee"); ax.grid(axis="y", visible=False)
@@ -220,7 +220,7 @@ def figures(allres):
     plt.close(fig)
 
     # water use by basin in 2050, BASE vs others
-    fig, axes = plt.subplots(1, len(scens), figsize=(3.2 * len(scens), 3.4), sharey=True)
+    fig, axes = plt.subplots(1, len(scens), figsize=(3.2 * len(scens), 3.4), sharey=True, sharex=True)
     axes = [axes] if len(scens) == 1 else axes
     wcol = {"Municipal": "#257de0", "Irrigation": "#f47230", "Transfer out": "#00b894", "Green ammonia": "#f2a600"}
     for ax, s in zip(axes, scens):

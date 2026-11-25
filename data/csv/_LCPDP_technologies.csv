@@ -35,6 +35,7 @@ WTRTLVN,"Municipal treatment and distribution, LVN",MCM/yr,MCM
 WUNSLVN,"Unserved municipal water (backstop), LVN",MCM/yr,MCM
 WIRSLVN,"Surface/furrow irrigation conveyance, LVN",MCM/yr,MCM
 WIRDLVN,"Drip/sprinkler irrigation, LVN",MCM/yr,MCM
+WIRULVN,"Irrigation water deficit (backstop), LVN",MCM/yr,MCM
 WSRFLVS,"Surface runoff net of ecological reserve, LVS",MCM/yr,MCM
 WRORLVS,"Run-of-river abstraction, LVS",MCM/yr,MCM
 WDAMLVS,"Dam storage yield, LVS",MCM/yr,MCM
@@ -43,6 +44,7 @@ WTRTLVS,"Municipal treatment and distribution, LVS",MCM/yr,MCM
 WUNSLVS,"Unserved municipal water (backstop), LVS",MCM/yr,MCM
 WIRSLVS,"Surface/furrow irrigation conveyance, LVS",MCM/yr,MCM
 WIRDLVS,"Drip/sprinkler irrigation, LVS",MCM/yr,MCM
+WIRULVS,"Irrigation water deficit (backstop), LVS",MCM/yr,MCM
 WSRFRVB,"Surface runoff net of ecological reserve, RVB",MCM/yr,MCM
 WRORRVB,"Run-of-river abstraction, RVB",MCM/yr,MCM
 WDAMRVB,"Dam storage yield, RVB",MCM/yr,MCM
@@ -51,6 +53,7 @@ WTRTRVB,"Municipal treatment and distribution, RVB",MCM/yr,MCM
 WUNSRVB,"Unserved municipal water (backstop), RVB",MCM/yr,MCM
 WIRSRVB,"Surface/furrow irrigation conveyance, RVB",MCM/yr,MCM
 WIRDRVB,"Drip/sprinkler irrigation, RVB",MCM/yr,MCM
+WIRURVB,"Irrigation water deficit (backstop), RVB",MCM/yr,MCM
 WSRFATH,"Surface runoff net of ecological reserve, ATH",MCM/yr,MCM
 WRORATH,"Run-of-river abstraction, ATH",MCM/yr,MCM
 WDAMATH,"Dam storage yield, ATH",MCM/yr,MCM
@@ -59,6 +62,7 @@ WTRTATH,"Municipal treatment and distribution, ATH",MCM/yr,MCM
 WUNSATH,"Unserved municipal water (backstop), ATH",MCM/yr,MCM
 WIRSATH,"Surface/furrow irrigation conveyance, ATH",MCM/yr,MCM
 WIRDATH,"Drip/sprinkler irrigation, ATH",MCM/yr,MCM
+WIRUATH,"Irrigation water deficit (backstop), ATH",MCM/yr,MCM
 WSRFTAN,"Surface runoff net of ecological reserve, TAN",MCM/yr,MCM
 WRORTAN,"Run-of-river abstraction, TAN",MCM/yr,MCM
 WDAMTAN,"Dam storage yield, TAN",MCM/yr,MCM
@@ -67,6 +71,7 @@ WTRTTAN,"Municipal treatment and distribution, TAN",MCM/yr,MCM
 WUNSTAN,"Unserved municipal water (backstop), TAN",MCM/yr,MCM
 WIRSTAN,"Surface/furrow irrigation conveyance, TAN",MCM/yr,MCM
 WIRDTAN,"Drip/sprinkler irrigation, TAN",MCM/yr,MCM
+WIRUTAN,"Irrigation water deficit (backstop), TAN",MCM/yr,MCM
 WSRFENN,"Surface runoff net of ecological reserve, ENN",MCM/yr,MCM
 WRORENN,"Run-of-river abstraction, ENN",MCM/yr,MCM
 WDAMENN,"Dam storage yield, ENN",MCM/yr,MCM
@@ -75,6 +80,7 @@ WTRTENN,"Municipal treatment and distribution, ENN",MCM/yr,MCM
 WUNSENN,"Unserved municipal water (backstop), ENN",MCM/yr,MCM
 WIRSENN,"Surface/furrow irrigation conveyance, ENN",MCM/yr,MCM
 WIRDENN,"Drip/sprinkler irrigation, ENN",MCM/yr,MCM
+WIRUENN,"Irrigation water deficit (backstop), ENN",MCM/yr,MCM
 WTRFTA,Inter-basin transfer Tana to Athi (Nairobi supply),MCM/yr,MCM
 WDESATH,"Seawater desalination, Mombasa (Athi basin)",MCM/yr,MCM
 LSUPLVN,"Land supply, LVN",kha,kha

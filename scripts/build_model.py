@@ -23,7 +23,7 @@ R = K.REGION
 SCENARIOS = {
     "BASE": "Demographic demand (3x population growth), least cost, current policy (no new coal)",
     "LCPDP": "As BASE but LCPDP 2024-2043 Reference demand growth (6.6%/yr) to 2043",
-    "RE100": "As BASE plus 100% renewable grid from 2035 (NDC 3.0); no fossil generation, no nuclear",
+    "RE100": "As BASE plus 100% renewable generation from 2035 (NDC 3.0): no fossil generation, no nuclear; standby firm capacity allowed",
     "NZDRY": "As BASE plus net-zero power CO2 by 2050 and climate stress (drier hydro, runoff, rainfed yields)",
     "IRRIG": "As BASE plus NISIP irrigation expansion (690 kha by 2035, 1,000 kha by 2050) forced",
 }
@@ -277,8 +277,8 @@ def build(scen):
             io("InputActivityRatio", t, d["fuel"], 1 / d["eff"])
         if sw["re100"] and t in fossil:
             m.yearly("TotalTechnologyAnnualActivityUpperLimit", (R, t), lambda y: None if y < 2035 else 0.0)
-            # no new fossil plant at all, so firm capacity has to come from renewables, not idle standby turbines
-            m.yearly("TotalAnnualMaxCapacityInvestment", (R, t), lambda y: 0.0)
+            # Standby firm capacity may still be built: a strict no-new-fossil variant is infeasible at the
+            # 18% reserve margin (geothermal drilling pace and zero battery firm credit), see README.
 
     # ---- battery storage
     B = K.BATTERY

@@ -1,2 +1,6 @@
-Scenario,Generation 2035 (TWh),Geothermal share 2035,Wind+solar share 2035,Generation 2050 (TWh),Geothermal share 2050,Wind+solar share 2050,Generation 2075 (TWh),Geothermal share 2075,Wind+solar share 2075,Investment 2026-2050 (bn USD),Irrigated area 2050 (kha),Nexus electricity 2050 (TWh),CO2 2050 (Mt),Unserved water 2050 (MCM),Total discounted cost (bn USD)
-BASE,26.0,25%,57%,42.5,22%,60%,69.2,30%,56%,17.9,211.0,4.69,0.0,0,83.2
+Scenario,Generation 2035 (TWh),Geothermal share 2035,Wind+solar share 2035,Generation 2050 (TWh),Geothermal share 2050,Wind+solar share 2050,Generation 2075 (TWh),Geothermal share 2075,Wind+solar share 2075,Investment 2026-2050 (bn USD),Irrigation schemes 2050 (kha),Irrigated cropped area 2050 (kha),Nexus electricity 2050 (TWh),CO2 2050 (Mt),Unserved water 2050 (MCM),Total discounted system cost (bn USD),Unserved electricity 2026-2075 (TWh)
+BASE,22.2,42%,26%,40.9,42%,43%,67.0,56%,33%,19.6,288.0,248.0,4.9,0.31,0,78.36,0.0
+LCPDP,25.0,39%,31%,53.4,51%,35%,88.0,58%,21%,27.4,288.0,248.0,4.89,0.65,0,81.73,0.0
+RE100,22.6,42%,27%,41.9,48%,39%,68.5,63%,26%,20.6,288.0,248.0,4.91,0.0,0,78.45,0.0
+NZDRY,22.2,42%,28%,41.3,45%,43%,67.7,56%,33%,20.2,289.0,226.0,5.2,-0.0,0,80.8,0.0
+IRRIG,23.0,41%,24%,43.1,39%,42%,70.0,54%,32%,31.2,1000.0,757.0,6.81,0.08,0,83.98,0.0
